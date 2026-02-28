@@ -13,9 +13,12 @@ virt-install \
 --name test-01 \
 --memory 1024 \
 --vcpus 1 \
+--boot uefi \
 --disk /var/lib/libvirt/images/test-01/debian-13.qcow2,format=qcow2 \
 --disk /var/lib/libvirt/images/test-01/seed.iso,device=cdrom \
 --os-variant debian13 \
 --network network=default \
 --graphics none \
+--console pty,target_type=virtio \
+--serial pty \
 --import
