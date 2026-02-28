@@ -32,4 +32,8 @@ EOF
 
 apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils -y
 
+mkdir /root/VM
+mkdir /root/VM/test-01
+mkdir /root/VM/docker-01
+
 reboot
