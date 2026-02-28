@@ -30,7 +30,7 @@ DOMAIN.rz-mgns.de {
 }
 EOF
 
-apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils -y
+apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils ovmf -y
 
 mkdir /root/VM
 mkdir /root/VM/test-01
