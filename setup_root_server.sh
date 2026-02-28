@@ -35,8 +35,8 @@ echo "export PATH=$PATH:/usr/sbin" >> /root/.bashrc
 
 /usr/sbin/sysctl -p
 
-waniface="eno1"
-laniface="vmbr0"
+waniface='"eno1"'
+laniface='"vmbr0"'
 
 cat << EOF >> /etc/nftables.conf
 flush ruleset
