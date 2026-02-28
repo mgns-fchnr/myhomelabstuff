@@ -1,6 +1,6 @@
 mkdir -p /var/lib/libvirt/images/test-01
 wget -O /var/lib/libvirt/images/test-01/debian-13.qcow2 https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.qcow2
-cloud-localds seed.iso user-data
+cloud-localds seed.iso user-data network-config
 cp /root/VM/test-01/seed.iso /var/lib/libvirt/images/test-01/
 chown libvirt-qemu:libvirt-qemu /var/lib/libvirt/images/test-01/seed.iso
 chown libvirt-qemu:libvirt-qemu /var/lib/libvirt/images/test-01/debian-13.qcow2
