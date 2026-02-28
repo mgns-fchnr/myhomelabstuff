@@ -27,7 +27,7 @@ EOF
 
 localedef -i de_DE -f UTF-8 de_DE.UTF-8
 
-apt install neovim btop nftables
+apt install neovim btop nftables -y
 
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 
@@ -96,7 +96,7 @@ EOF
 systemctl enable nftables
 systemctl restart nftables
 
-apt install caddy
+apt install caddy -y
 
 cat << EOF >> /etc/caddy/Caddyfile
 DOMAIN.rz-mgns.de {
@@ -104,4 +104,4 @@ DOMAIN.rz-mgns.de {
 }
 EOF
 
-apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils
+apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils -y
