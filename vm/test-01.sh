@@ -27,4 +27,5 @@ virt-install \
   --network network="$NETWORK",model=virtio \
   --graphics none \
   --console pty,target_type=serial \
-  --import
+  --import \
+  --boot uefi
