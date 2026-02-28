@@ -5,17 +5,18 @@ alias wasd='clear'
 alias update='apt update && apt upgrade -y && apt autoremove -y'
 EOF
 
-cat << EOF >> /etc/network/interfaces
+#cat << EOF >> /etc/network/interfaces
+#
+#auto vmbr0
+#iface vmbr0 inet static
+#  address 10.0.10.254/24
+#  bridge_ports none
+#  bridge_stp off
+#  bridge_fd 0
+#  pre-up ip link set vmbr0 up
+#EOF
 
-auto vmbr0
-iface vmbr0 inet static
-  address 10.0.10.254/25
-  bridge-ports none
-  bridge-stp off
-  bridge-fd 0
-EOF
-
-systemctl restart networking
+#systemctl restart networking
 
 cat << EOF >> /etc/environment
 LANG="de_DE.utf-8"
@@ -34,7 +35,7 @@ echo "export PATH=$PATH:/usr/sbin" >> /root/.bashrc
 /usr/sbin/sysctl -p
 
 waniface='"eno1"'
-laniface='"vmbr0"'
+#laniface='"vmbr0"'
 
 cat << EOF >> /etc/nftables.conf
 flush ruleset
@@ -52,7 +53,6 @@ table inet filter {
         ct state established,related accept
 
         # allow ssh from lan and wan
-        iif $laniface tcp dport 22 accept
         iif $waniface tcp dport 22 accept
 
         # allow http and https from wan
@@ -66,12 +66,6 @@ table inet filter {
     chain forward {
         type filter hook forward priority 0;
         policy drop;
-
-        # lan to wan
-        iif $laniface oif $waniface accept
-
-        # wan to lan for established connections
-        iif $waniface oif $laniface ct state established,related accept
     }
 
     chain output {
@@ -91,7 +85,8 @@ table ip nat {
 }
 EOF
 
-systemctl disable nftables
+systemctl enable nftables
+systemctl start nftables
 
 apt install caddy -y
 
