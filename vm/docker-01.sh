@@ -7,11 +7,11 @@ chown libvirt-qemu:libvirt-qemu /var/lib/libvirt/images/docker-01/debian-13.qcow
 chmod 644 /var/lib/libvirt/images/docker-01/seed.iso
 chmod 644 /var/lib/libvirt/images/docker-01/debian-13.qcow2
 
-qemu-img resize /var/lib/libvirt/images/docker-01/debian-13.qcow2 20G
+qemu-img resize /var/lib/libvirt/images/docker-01/debian-13.qcow2 40G
 
 VM_NAME="docker-01"
-MEMORY=1024
-VCPUS=1
+MEMORY=8192
+VCPUS=4
 DISK_IMAGE="/var/lib/libvirt/images/${VM_NAME}/debian-13.qcow2"
 CLOUD_INIT_ISO="/var/lib/libvirt/images/${VM_NAME}/seed.iso"
 OS_VARIANT="debian13"
