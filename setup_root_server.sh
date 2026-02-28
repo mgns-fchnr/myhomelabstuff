@@ -14,13 +14,7 @@ EOF
 
 localedef -i de_DE -f UTF-8 de_DE.UTF-8
 
-apt install neovim btop nftables -y
-
-echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
-
-echo "export PATH=$PATH:/usr/sbin" >> /root/.bashrc
-
-/usr/sbin/sysctl -p
+apt install neovim btop -y
 
 apt install caddy -y
 
@@ -31,6 +25,9 @@ DOMAIN.rz-mgns.de {
 EOF
 
 apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils ovmf -y
+
+virsh net-start default
+virsh net-autostart default
 
 mkdir /root/VM
 mkdir /root/VM/test-01
