@@ -18,6 +18,5 @@ virt-install \
 --os-variant debian13 \
 --network network=default \
 --graphics none \
---console pty,target_type=virtio \
---serial pty \
+--console pty,target_type=serial \
 --import
