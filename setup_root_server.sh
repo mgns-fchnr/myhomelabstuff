@@ -29,7 +29,13 @@ localedef -i de_DE -f UTF-8 de_DE.UTF-8
 
 apt install neovim btop nftables
 
-waniface=""
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+
+echo "export PATH=$PATH:/usr/sbin" >> /root/.bashrc
+
+/usr/sbin/sysctl -p
+
+waniface="eno1"
 laniface="vmbr0"
 
 cat << EOF >> /etc/nftables.conf
@@ -50,6 +56,10 @@ table inet filter {
         # allow ssh from lan and wan
         iif $laniface tcp dport 22 accept
         iif $waniface tcp dport 22 accept
+
+        # allow http and https from wan
+        iif $waniface tcp dport 80 accept
+        iif $waniface tcp dport 443 accept
 
         # allow ping
         ip protocol icmp accept
@@ -85,3 +95,13 @@ EOF
 
 systemctl enable nftables
 systemctl restart nftables
+
+apt install caddy
+
+cat << EOF >> /etc/caddy/Caddyfile
+DOMAIN.rz-mgns.de {
+        reverse_proxy IP-ADRESS:PORT
+}
+EOF
+
+apt install qemu-kvm libvirt-daemon-system libvirt-clients virtinst bridge-utils cloud-image-utils
