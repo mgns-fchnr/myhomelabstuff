@@ -93,8 +93,7 @@ table ip nat {
 }
 EOF
 
-systemctl enable nftables
-systemctl restart nftables
+systemctl disable nftables
 
 apt install caddy -y
 
