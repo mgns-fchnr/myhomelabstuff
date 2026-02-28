@@ -28,4 +28,5 @@ virt-install \
   --graphics none \
   --console pty,target_type=serial \
   --import \
-  --boot uefi
+  --boot uefi \
+  --noautoconsole
