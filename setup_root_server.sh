@@ -7,14 +7,12 @@ EOF
 
 cat << EOF >> /etc/network/interfaces
 
-#interface for virtual machines
-
 auto vmbr0
 iface vmbr0 inet static
-    address 10.0.10.254/25
-    bridge-ports none
-    bridge-stp off
-    bridge-fd 0
+  address 10.0.10.254/25
+  bridge-ports none
+  bridge-stp off
+  bridge-fd 0
 EOF
 
 systemctl restart networking
