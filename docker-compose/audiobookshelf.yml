@@ -5,8 +5,8 @@ services:
     ports:
       - 13378:80
     volumes:
-      - /mnt/at-at/audiobookshelf/audiobooks:/audiobooks
-      - /mnt/at-at/audiobookshelf/podcasts:/podcasts
-      - /mnt/at-at/audiobookshelf/metadata:/metadata
+      - /mnt/sbox-01/audiobookshelf/audiobooks:/audiobooks
+      - /mnt/sbox-01/audiobookshelf/podcasts:/podcasts
+      - /mnt/sbox-01/audiobookshelf/metadata:/metadata
       - ./config:/config
     restart: unless-stopped
