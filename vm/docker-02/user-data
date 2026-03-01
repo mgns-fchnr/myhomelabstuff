@@ -1,5 +1,5 @@
 #cloud-config
-hostname: docker-01
+hostname: docker-02
 manage_etc_hosts: true
 
 users:

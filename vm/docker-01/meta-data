@@ -1,2 +1,2 @@
-instance-id: HOSTNAME
-local-hostname: HOSTNAME
+instance-id: docker-01
+local-hostname: docker-01

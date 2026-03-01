@@ -1,5 +1,5 @@
 #cloud-config
-hostname: docker-01
+hostname: media-01
 manage_etc_hosts: true
 
 users:
