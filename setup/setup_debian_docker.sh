@@ -47,7 +47,7 @@ echo 'password=PASSWORD' >> /root/.sbox-01
 mkdir /mnt/sbox-01
 echo '//u469650.your-storagebox.de/backup /mnt/sbox-01 cifs credentials=/root/.sbox-01,iocharset=utf8' >> /etc/fstab
 
-system-daemon reload
+systemctl daemon-reload
 mount -a
 
 reboot
