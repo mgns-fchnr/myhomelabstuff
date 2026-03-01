@@ -1,0 +1,26 @@
+#cloud-config
+hostname: k3s-01
+manage_etc_hosts: true
+
+users:
+  - name: admin
+    groups: sudo
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+    passwd: "$6$0C1u8/t1bBHewKj5$w.aTXqNW4oEK29z6D/UMsxr/v63fCm/Z12QElHAu4ZqCEnGtDEWQgmSr1QEAFNhs6ZqRYOxareFkk/3dNeRbv0"
+    ssh_authorized_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA2dDjAjxEadLlzNql/DuPWYQX7FMsxlmv9pOiofgGIt root@rserver-01"
+
+ssh_pwauth: false
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - qemu-guest-agent
+  - curl
+
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
