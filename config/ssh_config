@@ -1,0 +1,29 @@
+Host database-01
+    Hostname 192.168.122.101
+    User admin
+    IdentityFile /root/.ssh/rserver-01
+
+Host docker-01
+    Hostname 192.168.122.102
+    User admin
+    IdentityFile /root/.ssh/rserver-01
+
+Host docker-02
+    Hostname 192.168.122.103
+    User admin
+    IdentityFile /root/.ssh/rserver-01
+
+Host k3s-01
+    Hostname 192.168.122.104
+    User admin
+    IdentityFile /root/.ssh/rserver-01
+
+Host media-01
+    Hostname 192.168.122.105
+    User admin
+    IdentityFile /root/.ssh/rserver-01
+
+Host monitoring
+    Hostname 192.168.122.106
+    User admin
+    IdentityFile /root/.ssh/rserver-01
