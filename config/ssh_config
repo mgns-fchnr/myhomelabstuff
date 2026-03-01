@@ -23,7 +23,7 @@ Host media-01
     User admin
     IdentityFile /root/.ssh/rserver-01
 
-Host monitoring
+Host monitoring-01
     Hostname 192.168.122.106
     User admin
     IdentityFile /root/.ssh/rserver-01
