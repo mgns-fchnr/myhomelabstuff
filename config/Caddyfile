@@ -9,3 +9,11 @@ openspeedtest.docker-01.rz-mgns.de {
 uptime-kuma.docker-01.rz-mgns.de {
         reverse_proxy 192.168.122.102:3007
 }
+
+vaultwarden.docker-02.rz-mgns.de {
+        reverse_proxy 192.168.122.103:3008
+}
+
+audiobookshelf.docker-02.rz-mgns.de {
+        reverse_proxy 192.168.122.103:3001
+}
