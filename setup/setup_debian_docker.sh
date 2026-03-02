@@ -32,13 +32,13 @@ EOF
 
 apt update
 
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 mkdir /root/DOCKER
 
 cd /root/DOCKER
 
-apt install cifs-utils
+apt install cifs-utils -y
 
 touch /root/.sbox-01
 echo 'user=u469650' >> /root/.sbox-01
@@ -46,8 +46,5 @@ echo 'password=PASSWORD' >> /root/.sbox-01
 
 mkdir /mnt/sbox-01
 echo '//u469650.your-storagebox.de/backup /mnt/sbox-01 cifs credentials=/root/.sbox-01,iocharset=utf8' >> /etc/fstab
-
-systemctl daemon-reload
-mount -a
 
 reboot
