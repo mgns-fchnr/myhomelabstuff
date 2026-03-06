@@ -7,7 +7,7 @@ chown libvirt-qemu:libvirt-qemu /var/lib/libvirt/images/media-01/debian-13.qcow2
 chmod 644 /var/lib/libvirt/images/media-01/seed.iso
 chmod 644 /var/lib/libvirt/images/media-01/debian-13.qcow2
 
-qemu-img resize /var/lib/libvirt/images/media-01/debian-13.qcow2 40G
+qemu-img resize /var/lib/libvirt/images/media-01/debian-13.qcow2 60G
 
 VM_NAME="media-01"
 MEMORY=4096
